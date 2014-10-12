@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yemyatthu.ourdays" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <receiver
+            android:name="com.yemyatthu.ourdays.LoveWidgetProvider"
+            android:label="Our Days" >
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider" >
+            </meta-data>
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.yemyatthu.ourdays.MyConfigActivity"
+            android:label="@string/title_activity_my_config" >
+        </activity>
+    </application>
+
+</manifest>
