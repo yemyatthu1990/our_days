@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RemoteViews;
 
+
+import com.pkmmte.view.CircularImageView;
 import com.yemyatthu.ourdays.R;
 import com.yemyatthu.ourdays.widget.LoveWidgetProvider;
 
@@ -23,6 +25,7 @@ import com.yemyatthu.ourdays.widget.LoveWidgetProvider;
 public class MyConfigFragment extends Fragment {
     private EditText loveText;
     private Button loveButton;
+    private CircularImageView testImage;
 
 
     public MyConfigFragment() {
@@ -37,6 +40,7 @@ public class MyConfigFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_my_config,container,false);
         loveText = (EditText) v.findViewById(R.id.set_love_text);
         loveButton = (Button) v.findViewById(R.id.update_text_button);
+
         loveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
