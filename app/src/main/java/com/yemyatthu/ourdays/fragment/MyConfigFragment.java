@@ -1,12 +1,9 @@
 package com.yemyatthu.ourdays.fragment;
 
 
-
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,11 +14,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RemoteViews;
 
-
 import com.cengalabs.flatui.FlatUI;
-import com.squareup.picasso.Picasso;
 import com.yemyatthu.ourdays.R;
-import com.yemyatthu.ourdays.util.CircleTransform;
 import com.yemyatthu.ourdays.widget.LoveWidgetProvider;
 
 import butterknife.ButterKnife;
@@ -55,14 +49,8 @@ public class MyConfigFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_my_config,container,false);
         ButterKnife.inject(this,v);
-        Picasso.with(getActivity())
-                .load(R.drawable.doge)
-                .transform(new CircleTransform())
-                .into(mainMale);
-        Picasso.with(getActivity())
-                .load(R.drawable.doge)
-                .transform(new CircleTransform())
-                .into(mainFemale);
+        mainMale.setImageResource(R.drawable.doge);
+        mainFemale.setImageResource(R.drawable.doge);
         loveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,18 +59,12 @@ public class MyConfigFragment extends Fragment {
                 RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
                 ComponentName thisWidget = new ComponentName(context, LoveWidgetProvider.class);
                 remoteViews.setTextViewText(R.id.together_text, loveText.getText().toString());
-                remoteViews.setImageViewBitmap(R.id.male_picture,circleBitmap(R.drawable.doge));
-                remoteViews.setImageViewBitmap(R.id.female_picture,circleBitmap(R.drawable.doge));
+                remoteViews.setImageViewResource(R.id.main_male, R.drawable.doge);
+                remoteViews.setImageViewResource(R.id.main_female,R.drawable.doge);
                 appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             }
         });
         return v;
-    }
-
-    private Bitmap circleBitmap(int resource){
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),resource);
-        Bitmap newBitmap = new CircleTransform().transform(bitmap);
-        return newBitmap;
     }
 
 

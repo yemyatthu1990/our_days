@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/widget_layout"
     android:orientation="horizontal"
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
-    <ImageView
+    <com.meg7.widget.SvgImageView
         android:id="@+id/male_picture"
         android:layout_height="80dp"
         android:layout_width="80dp"
-        android:src="@drawable/ic_launcher"
-        android:layout_margin="4dp">
-
-    </ImageView>
+        android:src="@drawable/doge"
+        app:svg_raw_resource="@raw/shape_heart"
+        android:layout_margin="4dp"/>
     <TextView
         android:id="@+id/together_text"
         android:layout_width="wrap_content"
@@ -22,14 +22,11 @@
         android:layout_margin="10dp"
         android:text="There goes your time"/>
 
-    <ImageView
+    <com.meg7.widget.SvgImageView
         android:id="@+id/female_picture"
         android:layout_height="80dp"
         android:layout_width="80dp"
-        android:src="@drawable/ic_launcher"
-        android:layout_margin="4dp">
-
-    </ImageView>
-
-
+        android:src="@drawable/doge"
+        app:svg_raw_resource="@raw/shape_heart"
+        android:layout_margin="4dp"/>
 </LinearLayout>
